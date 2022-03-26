@@ -34,21 +34,20 @@ public class LinkedList {
 	}
 	
 	//Counting List	
-	public void countList() {
-		
+	public int countList() {
+		int count=0;
 		if(head == null) {
 			System.out.println("List is Empty");
 		}
 		else {
 			Node curr = head;
-			int count=0;
-			while(curr!=null) {
+						while(curr!=null) {
 				count++;
-				curr=curr.next;
-				
+				curr=curr.next;				
 			}
 			System.out.println(count);
 		}
+		return count;
 	}
 	
 	//Printing List	
@@ -76,6 +75,36 @@ public class LinkedList {
 		}
 	}
 	
+	//Print the list in reverse order
+	public void printReverse(Node head) {
+		
+		if(head==null) {
+			return;
+		}
+		printReverse(head.next);
+		System.out.println(head.data);		
+	
+	}
+	
+	//Reverse the node of the linked list
+	public void reversedList() {
+		
+		Node curr = head;
+		Node nex = null;
+		Node prev = null;
+		
+		if(head==null) {
+			return;
+		}else {
+			while(curr!=null) {
+				nex = curr.next;
+				curr.next = prev;
+				prev = curr;
+				curr = nex;
+			}
+			head = prev;
+		}
+	}
 	
 	public static void main(String[] args) {
 		
@@ -92,11 +121,22 @@ public class LinkedList {
 		System.out.println("Number of Nodes in the List are:");
 		l.countList();
 		
-		l.removeHead();
+		
+//		l.removeHead();
 		
 		System.out.println("Number of Nodes in the List are:");
 		l.countList();
 		
+		System.out.println("Printing the list in reverse order without list Modification");
+		l.printReverse(l.head);
+		
+		l.reversedList();
+		
+		System.out.println("Reversed List");
+		l.printList();
+		
+		System.out.println("Printing the list in reverse order without list Modification");
+		l.printReverse(l.head);
 	}
 	
 
