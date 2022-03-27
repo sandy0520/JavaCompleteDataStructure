@@ -106,6 +106,33 @@ public class LinkedList {
 		}
 	}
 	
+	//Remove the element at certain index	
+	public void removeNodeAtIndex(int index) {
+		
+		int i=0;
+		if(head==null||index<0||index >= countList()) {
+			System.out.println("Invalid index");
+			return;
+		}
+		
+		Node curr = head;
+		Node temp = null;
+		
+		if(index==0) {
+			head = head.next;
+		}
+		else {
+			
+		while(i!=index-1) {
+			if(curr!=null) {
+				curr=curr.next;
+				i++;
+			}
+		}		
+		curr.next=curr.next.next;
+	  }
+	}
+	
 	public static void main(String[] args) {
 		
 		LinkedList l = new LinkedList();
@@ -118,8 +145,8 @@ public class LinkedList {
 		System.out.println("Printing Elements in Linked List");
 		l.printList();
 		
-		System.out.println("Number of Nodes in the List are:");
-		l.countList();
+//		System.out.println("Number of Nodes in the List are:");
+//		l.countList();
 		
 		
 //		l.removeHead();
@@ -127,16 +154,21 @@ public class LinkedList {
 		System.out.println("Number of Nodes in the List are:");
 		l.countList();
 		
-		System.out.println("Printing the list in reverse order without list Modification");
-		l.printReverse(l.head);
+//		System.out.println("Printing the list in reverse order without list Modification");
+//		l.printReverse(l.head);
+//		
+//		l.reversedList();
+//		
+//		System.out.println("Reversed List");
+//		l.printList();
+//		
+//		System.out.println("Printing the list in reverse order without list Modification");
+//		l.printReverse(l.head);
 		
-		l.reversedList();
-		
-		System.out.println("Reversed List");
+		l.removeNodeAtIndex(0);
+		System.out.println("Index removed and printed");
 		l.printList();
-		
-		System.out.println("Printing the list in reverse order without list Modification");
-		l.printReverse(l.head);
+	
 	}
 	
 
