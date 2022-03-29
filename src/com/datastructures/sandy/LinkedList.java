@@ -116,7 +116,7 @@ public class LinkedList {
 		}
 		
 		Node curr = head;
-		Node temp = null;
+		
 		
 		if(index==0) {
 			head = head.next;

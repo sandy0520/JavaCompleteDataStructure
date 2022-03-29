@@ -77,17 +77,45 @@ public class Stack {
 		}
 	}
 	
+	//Finding Minimum Element
+	public int minimum() {
+		
+		if(top == null||size==0) {
+			System.out.println("Stack Empty");
+		}
+		int min =top.data;
+//		while(top!=null) {
+//			System.out.println(top.data);
+//			if(top.data<min) {
+//				min=top.data;
+//			}
+//			top = top.next;
+//		}
+		// OR
+		
+		while(size!=0) {
+			if(top.data<min) {
+				min=top.data;
+			}
+			top = top.next;
+			size--;
+		}
+		
+		return min;
+	}
+	
 	
 	public static void main(String[] args) {
 		Stack s = new Stack();
 		
 		//System.out.println("The top element removed from the stack is "+s.pop());
 		
-		s.push(10);
+		//s.push(10);
 		s.push(20);
 		s.push(30);
-		s.push(40);
+		s.push(40);		
 		s.push(50);
+		s.push(15);
 		
 		//s.printStack();
 		
@@ -95,15 +123,19 @@ public class Stack {
 		
 		System.out.println("The top element present in the stack is "+s.peek());
 		
-		System.out.println("The top element removed from the stack is "+s.pop());
+		//System.out.println("The top element removed from the stack is "+s.pop());
 		
 		System.out.println("The top element present in the stack is "+s.peek());
 		
 		System.out.println("The total size of the stack is "+s.size());
 		
-		s.printStack();
+//		s.printStack();
+//		
+//		System.out.println("Calling second time to print");
+//		s.printStack();
 		
-		System.out.println("Calling second time to print");
+		System.out.println("The minimum element is: "+s.minimum());
+		
 		s.printStack();
 	}
 }
