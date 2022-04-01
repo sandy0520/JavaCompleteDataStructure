@@ -53,14 +53,14 @@ public class AdjacencyMatrixGraph implements Graph {
 	
 	public static void main(String[] args) {
 		
-		AdjacencyMatrixGraph g = new AdjacencyMatrixGraph(4, GraphType.UNDIRECTED);
+		AdjacencyMatrixGraph g = new AdjacencyMatrixGraph(4, GraphType.DIRECTED);
 		
 		g.addEdge(0, 1);
 		g.addEdge(0, 3);
 		g.addEdge(1, 2);
 		g.addEdge(2, 3);
 		
-		List<Integer> res = g.getAdjacentVertices(3);
+		List<Integer> res = g.getAdjacentVertices(0);
 		
 		for(int l : res) {
 			System.out.println(l);
